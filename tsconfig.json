@@ -1,0 +1,9 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "checkJs": true,
+        "target": "ES5"
+    }
+}
