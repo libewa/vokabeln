@@ -13,7 +13,7 @@ await new Command()
   .description("Command line vocabulary learning tool")
   .command("add", "Add new vocabulary")
   .arguments("<set:string>")
-  .action((set: string) => {
+  .action((_options: void, set: string) => {
     if (sets[set] == undefined) {
       console.info(`Adding new set "${set}"`)
     } else {
@@ -25,7 +25,7 @@ await new Command()
   })
   .command("list", "List existing vocabulary")
   .arguments("<set:string>")
-  .action((set: string) => {
+  .action((_options: void , set: string) => {
     const table = new Table()
       .header(new Row("Source", "Translations", "Phase").border())
     for (const voc of sets[set]) {
