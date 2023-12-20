@@ -1,48 +1,72 @@
-import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts";
-import { Row, Table } from "https://deno.land/x/cliffy@v1.0.0-rc.3/table/mod.ts";
+import {
+  Command,
+  HelpCommand,
+} from "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts";
 import { promptNewVocab } from "./add.ts";
 import { SetsList } from "./typedef.ts";
 import { learn } from "./learn.ts";
+import { list } from "./list.ts";
+import { underline } from "https://deno.land/std@0.196.0/fmt/colors.ts";
+import { code } from "./functions.ts";
 
-// deno-lint-ignore prefer-const
-export let sets: SetsList = JSON.parse(localStorage.getItem("sets") ?? "{}")
+export const sets: SetsList = JSON.parse(localStorage.getItem("sets") ?? "{}");
+
+export let verboseOutput: boolean;
 
 const command = new Command()
   .name("vokabeln")
   .version("0.1.0")
   .description("Command line vocabulary learning tool")
-  .action(() => {
-    command.showHelp()
+  .globalOption("-v --verbose", "Get verbose (debugging) output.")
+  .globalAction(({ verbose }) => {
+    if (verbose != undefined) {
+      verboseOutput = verbose as boolean;
+    }
   })
-  .command("add", "Add new vocabulary")
+  .action(() => {
+    command.showHelp();
+  })
+  .example("Adding new cards", code("vokabeln add latin"))
+  .example("List existing cards", code("vokabeln list latin"))
+  .example("Learn cards", code("vokabeln learn latin"))
+  .example(
+    "Learn cards, including ones not due",
+    `${code("vokabeln learn -a latin")} \n${underline(
+      "This may reduce the learning effect"
+    )}`
+  )
+  .command("add", "Add new cards")
+  .example("Adding new cards", code("vokabeln add latin"))
   .arguments("<set:string>")
-  .action((_options: void, set: string) => {
+  // deno-lint-ignore no-explicit-any
+  .action((_: any, set: string) => {
     if (sets[set] == undefined) {
-      console.info(`Adding new set "${set}"`)
+      console.info(`Adding new set "${set}"`);
     } else {
-      console.info(`Using existing set "${set}"`)
+      if (verboseOutput) {
+        console.info(`Using existing set "${set}"`);
+      }
     }
     while (true) {
-      promptNewVocab(set)
+      promptNewVocab(set);
     }
   })
-  .command("list", "List existing vocabulary")
+  .command("list", "List existing cards")
+  .example("List existing cards", code("vokabeln list latin"))
   .arguments("<set:string>")
-  .action((_options: void , set: string) => {
-    const table = new Table()
-      .header(new Row("Source", "Translations", "Phase").border())
-    for (const voc of sets[set]) {
-      table.push([voc.source, voc.translation, voc.phase])
-    }
-    table.border().render()
-    Deno.exit(0)
-  })
+  .action(list)
   .command("learn", "Test your vocabulary knowledge")
+  .option("-a --all-cards", "Learn all cards, even if they're not due today")
+  .example("Learn cards", code("vokabeln learn latin"))
+  .example(
+    "Learn cards, including ones not due",
+    `${code("vokabeln learn -a latin")} \n${underline(
+      "This may reduce the learning effect"
+    )}`
+  )
   .arguments("<set:string>")
   .action(learn)
+  .command("help", new HelpCommand())
+  .global();
 
-await command.parse()
-export function writeSets(sets: SetsList, key = "sets") {
-  localStorage.setItem(key, JSON.stringify(sets))
-}
-
+await command.parse();

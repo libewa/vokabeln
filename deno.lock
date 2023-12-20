@@ -12,6 +12,7 @@
     }
   },
   "redirects": {
+    "https://deno.land/std/fmt/colors.ts": "https://deno.land/std@0.209.0/fmt/colors.ts",
     "https://deno.land/x/ctrlc/mod.ts": "https://deno.land/x/ctrlc@0.2.1/mod.ts",
     "https://deno.land/x/shuffle_array/mod.ts": "https://deno.land/x/shuffle_array@v1.0.7/mod.ts"
   },
@@ -22,6 +23,7 @@
     "https://deno.land/std@0.196.0/console/_rle.ts": "56668d5c44f964f1b4ff93f21c9896df42d6ee4394e814db52d6d13f5bb247c7",
     "https://deno.land/std@0.196.0/console/unicode_width.ts": "10661c0f2eeab802d16b8b85ed8825bbc573991bbfb6affed32dc1ff994f54f9",
     "https://deno.land/std@0.196.0/fmt/colors.ts": "a7eecffdf3d1d54db890723b303847b6e0a1ab4b528ba6958b8f2e754cf1b3bc",
+    "https://deno.land/std@0.209.0/fmt/colors.ts": "34b3f77432925eb72cf0bfb351616949746768620b8e5ead66da532f93d10ba2",
     "https://deno.land/x/chrono@v1.3.0/chrono.ts": "7c5a89d3c6f658fe3265bf5681ceef323f9feddf8875ab13e3ac2436e279eac0",
     "https://deno.land/x/chrono@v1.3.0/duration.enum.ts": "624a8398dc86d7cd4bbb9427637183971d5d3bca244bf4b050a75fcc73576f5e",
     "https://deno.land/x/chrono@v1.3.0/mod.ts": "35ecdc308f2d41b7e093e78dff49e396c88ad90735f78ecf686ae9a6d8b576f0",
