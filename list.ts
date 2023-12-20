@@ -10,7 +10,7 @@ export function list(_: any, set: string) {
     new Row("Source", "Translations", "Phase").border()
   );
   for (const voc of sets[set]) {
-    table.push([voc.source, voc.translation, voc.phase]);
+    table.push([voc.source, voc.translation, voc.phase == 7 ? "Done" : voc.phase]);
   }
   table.border().render();
   Deno.exit(0);
