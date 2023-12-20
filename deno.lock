@@ -1,21 +1,5 @@
 {
   "version": "3",
-  "packages": {
-    "specifiers": {
-      "npm:@types/node": "npm:@types/node@18.16.19"
-    },
-    "npm": {
-      "@types/node@18.16.19": {
-        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
-        "dependencies": {}
-      }
-    }
-  },
-  "redirects": {
-    "https://deno.land/std/fmt/colors.ts": "https://deno.land/std@0.209.0/fmt/colors.ts",
-    "https://deno.land/x/ctrlc/mod.ts": "https://deno.land/x/ctrlc@0.2.1/mod.ts",
-    "https://deno.land/x/shuffle_array/mod.ts": "https://deno.land/x/shuffle_array@v1.0.7/mod.ts"
-  },
   "remote": {
     "https://deno.land/std@0.196.0/assert/assert.ts": "9a97dad6d98c238938e7540736b826440ad8c1c1e54430ca4c4e623e585607ee",
     "https://deno.land/std@0.196.0/assert/assertion_error.ts": "4d0bde9b374dfbcbe8ac23f54f567b77024fb67dbb1906a852d67fe050d42f56",
@@ -23,7 +7,6 @@
     "https://deno.land/std@0.196.0/console/_rle.ts": "56668d5c44f964f1b4ff93f21c9896df42d6ee4394e814db52d6d13f5bb247c7",
     "https://deno.land/std@0.196.0/console/unicode_width.ts": "10661c0f2eeab802d16b8b85ed8825bbc573991bbfb6affed32dc1ff994f54f9",
     "https://deno.land/std@0.196.0/fmt/colors.ts": "a7eecffdf3d1d54db890723b303847b6e0a1ab4b528ba6958b8f2e754cf1b3bc",
-    "https://deno.land/std@0.209.0/fmt/colors.ts": "34b3f77432925eb72cf0bfb351616949746768620b8e5ead66da532f93d10ba2",
     "https://deno.land/x/chrono@v1.3.0/chrono.ts": "7c5a89d3c6f658fe3265bf5681ceef323f9feddf8875ab13e3ac2436e279eac0",
     "https://deno.land/x/chrono@v1.3.0/duration.enum.ts": "624a8398dc86d7cd4bbb9427637183971d5d3bca244bf4b050a75fcc73576f5e",
     "https://deno.land/x/chrono@v1.3.0/mod.ts": "35ecdc308f2d41b7e093e78dff49e396c88ad90735f78ecf686ae9a6d8b576f0",
@@ -88,7 +71,6 @@
     "https://deno.land/x/cliffy@v1.0.0-rc.3/table/mod.ts": "40f148428acbfffa270f7077c403b3893797d9e454a74ccb41a8434367351326",
     "https://deno.land/x/cliffy@v1.0.0-rc.3/table/row.ts": "79eb1468aafdd951e5963898cdafe0752d4ab4c519d5f847f3d8ecb8fe857d4f",
     "https://deno.land/x/cliffy@v1.0.0-rc.3/table/table.ts": "298671e72e61f1ab18b42ae36643181993f79e29b39dc411fdc6ffd53aa04684",
-    "https://deno.land/x/ctrlc@0.2.1/mod.ts": "b7895894c596f2e8355d3b181ed30fa74cb54b94c419b730f6cb6ff96b20ec8b",
     "https://deno.land/x/shuffle_array@v1.0.7/mod.ts": "4a07ae9a7a48f91ca8a3926c8d5e1bb5df28f3fe5f73acb18c0be1e8ef9d60db"
   }
 }
