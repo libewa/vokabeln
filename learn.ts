@@ -1,17 +1,17 @@
-import { Card, SetsList } from "./typedef.ts";
+import { Card } from "./typedef.ts";
 import { sets } from "./main.ts";
 import { shuffleArray } from "https://deno.land/x/shuffle_array@v1.0.7/mod.ts";
 import { Chrono } from "https://deno.land/x/chrono@v1.3.0/mod.ts";
-import { number } from "https://deno.land/x/cliffy@v1.0.0-rc.3/flags/types/number.ts";
 
 export function learn(_options: void, setName: string) {
     let set: Card[] = sets[setName]
     for (let i = 6; i > 0; i--) {
-        let filtered = set.filter((item) => item.phase == i)
+        const filtered = set.filter((item) => item.phase == i)
         if (filtered.length > 0) {
             set = filtered
         }
     }
+    // deno-lint-ignore prefer-const
     let incorrect: Card[] = []
     for (const card of set) {
         let nextDate: Chrono = new Chrono(new Chrono().toISOString().split('T')[0])
@@ -58,7 +58,7 @@ export function learn(_options: void, setName: string) {
         }
     }
     while (incorrect.length > 0) {
-        let card = incorrect.pop()
+        const card = incorrect.pop()
         alert(card?.source)
         console.info(card?.translation)
         let correct: string | null = null
