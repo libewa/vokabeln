@@ -7,10 +7,13 @@ import { learn } from "./learn.ts";
 // deno-lint-ignore prefer-const
 export let sets: SetsList = JSON.parse(localStorage.getItem("sets") ?? "{}")
 
-await new Command()
+const command = new Command()
   .name("vokabeln")
   .version("0.1.0")
   .description("Command line vocabulary learning tool")
+  .action(() => {
+    command.showHelp()
+  })
   .command("add", "Add new vocabulary")
   .arguments("<set:string>")
   .action((_options: void, set: string) => {
@@ -37,9 +40,8 @@ await new Command()
   .command("learn", "Test your vocabulary knowledge")
   .arguments("<set:string>")
   .action(learn)
-  .parse(Deno.args);
 
-
+await command.parse()
 export function writeSets(sets: SetsList, key = "sets") {
   localStorage.setItem(key, JSON.stringify(sets))
 }
