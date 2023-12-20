@@ -2,7 +2,7 @@ import { Card } from "./typedef.ts";
 import { sets } from "./main.ts";
 import { shuffleArray } from "https://deno.land/x/shuffle_array@v1.0.7/mod.ts";
 import { Chrono } from "https://deno.land/x/chrono@v1.3.0/mod.ts";
-import { infoIfVerbose } from "./functions.ts";
+import { infoIfVerbose, writeSets } from "./functions.ts";
 
 export function learn(
   options: { verbose?: unknown; allCards?: true | undefined },
@@ -101,4 +101,6 @@ export function learn(
       incorrect.push(card!);
     }
   }
+  sets[setName] = set
+  writeSets(sets)
 }
