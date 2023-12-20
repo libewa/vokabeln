@@ -31,12 +31,6 @@ const command = new Command()
   .example("Adding new cards", code("vokabeln add latin"))
   .example("List existing cards", code("vokabeln list latin"))
   .example("Learn cards", code("vokabeln learn latin"))
-  .example(
-    "Learn cards, including ones not due",
-    `${code("vokabeln learn -a latin")} \n${underline(
-      "This may reduce the learning effect"
-    )}`
-  )
   .command("add", "Add new cards")
   .example("Adding new cards", code("vokabeln add latin"))
   .arguments("<set:string>")
@@ -55,6 +49,7 @@ const command = new Command()
   })
   .command("list", "List existing cards")
   .example("List existing cards", code("vokabeln list latin"))
+  .example("Save existing cards to file", code("vokabeln list latin > vocab.txt"))
   .arguments("<set:string>")
   .action(list)
   .command("learn", "Test your vocabulary knowledge")
