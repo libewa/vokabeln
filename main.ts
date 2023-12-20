@@ -22,7 +22,7 @@ const command = new Command()
   .globalOption("-v --verbose", "Get verbose (debugging) output.")
   .globalAction(({ verbose }) => {
     if (verbose != undefined) {
-      verboseOutput = verbose as boolean;
+      verboseOutput = verbose;
     }
   })
   .action(() => {
