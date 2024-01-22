@@ -1,7 +1,7 @@
 # `vokabeln`
 ## What is `vokabeln`?
 
-`vokabeln` is a learning card style command line vocabularyy trainer for your command line that runs on the modern Deno runtime for TypeScript, giving it the stability of a compiled binary and the flexibility of JavaScript. (compiled binary coming soon)
+`vokabeln` is a learning card style command line vocabulary trainer for your command line that runs on the modern Deno runtime for TypeScript, giving it the stability of a compiled binary and the flexibility of JavaScript. (compiled binary coming soon)
 
 ## Installing
 
